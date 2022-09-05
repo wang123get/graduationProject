@@ -1,6 +1,6 @@
 <template>
   <div>
-    <discovery-card :shop-content-list='showContentData' v-if='loadState.loadState === "ok"' />
+    <discovery-card :shop-content-list='showContentData'  v-if='loadState.loadState === "ok"'/>
     <div class='loadBox' v-if='loadState.loadState === "loading"'>
       <img src='src/assets/image/loading.gif' class='DLoading'>
     </div>
@@ -14,11 +14,10 @@ import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import { shopIDList } from '@/components/Shop/BaseLayout/config'
 import DiscoveryCard from '@/components/Shop/showCard/discoveryCard.vue'
-import FirstLoad from '@/components/loadIng/firstLoad.vue'
 
 
 export default defineComponent({
-  components: { FirstLoad, DiscoveryCard },
+  components: { DiscoveryCard },
   setup() {
     const route = useRoute()
     const store = useStore()
@@ -39,7 +38,6 @@ export default defineComponent({
 
     const loadState = computed(() => store.getters['Discovery/getLoadState'])
     const showContentData = computed(() => store.getters['Discovery/getContentList'])
-
     return { route, showContentData, loadState }
   }
 })

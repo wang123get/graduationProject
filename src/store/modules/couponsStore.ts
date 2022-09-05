@@ -10,7 +10,8 @@ const couponsModule: Module<any, any> = {
       favoritesID: 0,
       favoritesTitle: '',
       favoritesIDList: [] as recommendType[],
-      recommendContendList: [] as recommendContentList[]
+      recommendContendList: [] as recommendContentList[],
+      loadState: 'loading',
     }
   },
   getters: {
@@ -19,6 +20,9 @@ const couponsModule: Module<any, any> = {
     },
     getRecommendContendList(state) {
       return state.recommendContendList
+    },
+    getLoadState(state) {
+      return state.loadState
     }
   },
   mutations: {
@@ -28,6 +32,7 @@ const couponsModule: Module<any, any> = {
       }
     },
     changeId(state, id: number) {
+
       state.favoritesID = id
     },
     changeTitle(state, title: string) {
@@ -39,9 +44,17 @@ const couponsModule: Module<any, any> = {
     addNewGoods(state, goods: recommendContentList[]) {
       state.recommendContendList = []
       state.recommendContendList.push(...goods)
+    },
+    changeLoadState(state, loadState: boolean) {
+      state.loadState = loadState
     }
   },
   actions: {
+    changeLoadState({ commit, state }, loadState: boolean) {
+      if (state.loadState !== loadState) {
+        commit('changeLoadState', loadState)
+      }
+    },
     async getRecommendIDList({ commit }) {
       const IDList = await shopApi.getRecommendID()
 
@@ -58,7 +71,6 @@ const couponsModule: Module<any, any> = {
       if (shopID.id === undefined) {
         return
       }
-
       const shopContentList = await shopApi.getRecommendContentByID(shopID.id)
       const DataList =
         //@ts-ignore

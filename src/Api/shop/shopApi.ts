@@ -33,18 +33,16 @@ class shopApi {
       method: 'get',
       interceptors: {
         requestInterceptor: (config) => {
-          console.log('开始拦截')
-
           store.dispatch('Discovery/changeLoadState', {
             loadState: 'loading'
           })
           return config
         },
         responseInterceptor: (res) => {
-          console.log('释放拦截')
           store.dispatch('Discovery/changeLoadState', {
             loadState: 'ok'
           })
+          console.log('释放')
           return res
         }
       }
@@ -68,7 +66,23 @@ class shopApi {
    */
   getRecommendContentByID(id: number) {
     return shopRequest.get<recommendContentList>({
-      url: `/recommend/${id}`
+      url: `/recommend/${id}`,
+      interceptors: {
+        requestInterceptor: (config) => {
+          console.log('cou开始拦截')
+          store.dispatch('Coupons/changeLoadState', {
+            loadState: 'loading'
+          })
+          return config
+        },
+        responseInterceptor: (res) => {
+          console.log('cou释放拦截')
+          store.dispatch('Coupons/changeLoadState', {
+            loadState: 'ok'
+          })
+          return res
+        }
+      }
     })
   }
 

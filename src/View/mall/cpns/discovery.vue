@@ -30,12 +30,11 @@
 import { computed, defineComponent } from 'vue'
 import { useStore } from '@/store'
 import { ShopPagination } from '@/Api/shop/types'
-import FirstLoad from '@/components/loadIng/firstLoad.vue'
 
 
 export default defineComponent({
   name: 'discovery',
-  components: { FirstLoad },
+  components: { },
   setup() {
     const store = useStore()
     const getContentID = () => {
@@ -52,7 +51,9 @@ export default defineComponent({
       '//gw.alicdn.com/bao/uploaded/i1/4217952040/O1CN01pgzcpR1QwMfdWnE1P_!!0-item_pic.jpg',
       '//gw.alicdn.com/bao/uploaded/i2/3697925558/O1CN01Bb3Biw1qvc6m2FG6r_!!0-item_pic.jpg'
     ]
-    return { bannerImg, showPageData }
+
+    const loadState = computed(() => store.getters['Discovery/getLoadState'])
+    return { bannerImg, showPageData, loadState }
   }
 })
 </script>
@@ -78,6 +79,11 @@ export default defineComponent({
     float: left;
 
     ul {
+
+      .IDLoading {
+
+      }
+
       li {
         height: 40px;
         cursor: pointer;
@@ -106,7 +112,8 @@ export default defineComponent({
     box-shadow: 0 5px 10px #d4d4d4;
     right: 0;
   }
-}
 
+
+}
 
 </style>

@@ -2,8 +2,8 @@ import { RouteRecordRaw } from 'vue-router'
 
 const routeList: RouteRecordRaw[] = [
   {
-    path:'/demo',
-    component:() => import('@/components/loadIng/firstLoad.vue')
+    path: '/demo',
+    component: () => import('@/components/loading/BigLoad.vue')
   },
   {
     path: '/login',
@@ -11,7 +11,7 @@ const routeList: RouteRecordRaw[] = [
   },
   {
     path: '/home',
-    component: () => import('@/View/home/home.vue'),
+    component: () => import('@/View/home/home.vue')
   },
   {
     path: '/mall',
@@ -21,14 +21,14 @@ const routeList: RouteRecordRaw[] = [
       {
         path: '/coupons',
         component: () => import('@/View/mall/cpns/coupons.vue'),
-        redirect:'/coupons/热门推荐',
+        redirect: '/coupons/热门推荐',
         children: [{
           path: '/coupons/:id',
           component: () => import('@/components/Shop/BaseLayout/couponsInter.vue')
         }]
       }, {
         path: '/discovery',
-        redirect:'/discovery/推荐',
+        redirect: '/discovery/推荐',
         component: () => import('@/View/mall/cpns/discovery.vue'),
         children: [{
           path: '/discovery/:id',
@@ -36,7 +36,7 @@ const routeList: RouteRecordRaw[] = [
         }]
       }, {
         path: '/specials',
-        component: () => import('@/components/Shop/BaseLayout/specialsInter.vue'),
+        component: () => import('@/components/Shop/BaseLayout/specialsInter.vue')
       }, {
         path: '/search',
         component: () => import('@/View/mall/cpns/searchView.vue')

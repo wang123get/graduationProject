@@ -12,7 +12,7 @@ const discoveryModule: Module<any, any> = {
       page: [],
       goodIdList: [] as ShopPagination[],
       goods: [] as Goods[],
-      loadState: 'loading'
+      loadState: 'loading',
     }
   },
   getters: {
@@ -51,7 +51,7 @@ const discoveryModule: Module<any, any> = {
     clearPageList(state) {
       state.page = []
     },
-    changeLoadState(state, loadState: boolean) {
+    changeLoadState(state, loadState) {
       state.loadState = loadState
     }
   },

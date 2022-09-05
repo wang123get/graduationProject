@@ -24,7 +24,7 @@
 
 <script lang='ts'>
 import { computed, defineComponent } from 'vue'
-import { ShopPagination } from '@/Api/shop/types'
+import { recommendType } from '@/Api/shop/types'
 import { useStore } from '@/store'
 
 export default defineComponent({
@@ -37,7 +37,9 @@ export default defineComponent({
     }
     getContentID()
 
-    const IDList = computed(() => store.getters['Coupons/getFavoritesIDList']) as unknown as ShopPagination[]
+    const IDList = computed(() => store.getters['Coupons/getFavoritesIDList']) as unknown as recommendType[]
+
+
     return { IDList }
   }
 })
