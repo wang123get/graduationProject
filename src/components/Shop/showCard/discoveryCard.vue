@@ -1,35 +1,35 @@
 <template>
   <div>
     <ul>
-      <template v-for="content in shopContentList">
+      <template v-for='content in shopContentList'>
         <li>
-          <div class="goodCard">
-            <div class="imageType">
-              <el-image :src="content.pict_url" fit="cover"/>
+          <div class='goodCard'>
+            <div class='imageType'>
+              <el-image :src='content.pict_url' fit='cover' />
             </div>
-            <div class="titleBox">
-              <a :href="content.click_url" target="_blank" class="aType">
-                <span class="titleType">{{ content.title }}</span>
+            <div class='titleBox'>
+              <a :href='content.click_url' target='_blank' class='aType'>
+                <span class='titleType'>{{ content.title }}</span>
               </a>
             </div>
-            <div style="margin-top: 10px; margin-bottom: 10px">
-              <span class="zk_final_price"
+            <div style='margin-top: 10px; margin-bottom: 10px'>
+              <span class='zk_final_price'
               >原价{{ content.zk_final_price }}</span
               >
-              <span class="coupon_amount"
-              >卷后价：<span style="color: #ff4500">{{
+              <span class='coupon_amount'
+              >卷后价：<span style='color: #ff4500'>{{
                   //@ts-ignore
                   (content.zk_final_price - content.coupon_amount).toFixed(2)
                 }}</span></span
               >
             </div>
             <div
-                style="
+              style='
                 color: #47494e;
                 margin-top: 10px;
                 margin-bottom: 10px;
                 font-size: 16px;
-              "
+              '
             >
               <span>
                 {{ content.volume }}
@@ -37,7 +37,7 @@
               <span> · </span>
               <span> 人已买 </span>
             </div>
-            <a :href="content.click_url" target="_blank" class="shopButton">领卷购买</a>
+            <a :href='content.click_url' target='_blank' class='shopButton'>领卷购买</a>
           </div>
         </li>
       </template>
@@ -45,12 +45,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from "vue";
+<script lang='ts'>
+import { defineComponent } from 'vue'
+
 export default defineComponent({
-  props:{
-    shopContentList:{
-      required:true
+  props: {
+    shopContentList: {
+      required: true
     }
   }
 })
@@ -123,8 +124,4 @@ export default defineComponent({
   border-color: #ff4500;
 }
 
-.DLoading {
-  width: 50px;
-  height: 50px;
-}
 </style>

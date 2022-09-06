@@ -42,7 +42,6 @@ class shopApi {
           store.dispatch('Discovery/changeLoadState', {
             loadState: 'ok'
           })
-          console.log('释放')
           return res
         }
       }
@@ -69,14 +68,12 @@ class shopApi {
       url: `/recommend/${id}`,
       interceptors: {
         requestInterceptor: (config) => {
-          console.log('cou开始拦截')
           store.dispatch('Coupons/changeLoadState', {
             loadState: 'loading'
           })
           return config
         },
         responseInterceptor: (res) => {
-          console.log('cou释放拦截')
           store.dispatch('Coupons/changeLoadState', {
             loadState: 'ok'
           })
@@ -92,7 +89,21 @@ class shopApi {
    */
   getPreferential(page: number) {
     return shopRequest.get<preferentialType>({
-      url: `/onSell/${page}`
+      url: `/onSell/${page}`,
+      interceptors: {
+        requestInterceptor: (config) => {
+          store.dispatch('Special/changeLoadStateActions', {
+            loadState: 'loading'
+          })
+          return config
+        },
+        responseInterceptor: (res) => {
+          store.dispatch('Special/changeLoadStateActions', {
+            loadState: 'ok'
+          })
+          return res
+        }
+      }
     })
   }
 

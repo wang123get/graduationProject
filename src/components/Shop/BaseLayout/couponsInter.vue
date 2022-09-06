@@ -10,7 +10,7 @@
         </span>
       </div>
       <div class='content-list'>
-        <coupons-card :shopList='showContentData' v-if='loadState.loadState === "ok"'/>
+        <coupons-card :shopList='showContentData' v-if='loadState.loadState === "ok"' />
       </div>
       <div>
         <img src='src/assets/image/loading.gif' v-if='loadState.loadState === "loading"' class='loading'>
@@ -51,6 +51,10 @@ export default defineComponent({
     const showContentData = computed(() => store.getters['Coupons/getRecommendContendList'])
 
     const loadState = computed(() => store.getters['Coupons/getLoadState'])
+
+    if (loadState.value.loadState === 'loading') {
+      showContentData.value = []
+    }
     return { route, showContentData, loadState }
   }
 })

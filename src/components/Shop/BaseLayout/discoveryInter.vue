@@ -1,6 +1,6 @@
 <template>
   <div>
-    <discovery-card :shop-content-list='showContentData'  v-if='loadState.loadState === "ok"'/>
+    <discovery-card :shop-content-list='showContentData' v-if='loadState.loadState === "ok"' />
     <div class='loadBox' v-if='loadState.loadState === "loading"'>
       <img src='src/assets/image/loading.gif' class='DLoading'>
     </div>
@@ -22,6 +22,7 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore()
 
+
     const getDiscoveryData = (url: string) => {
       store.dispatch('Discovery/shopContentListActions', {
         //@ts-ignore
@@ -38,6 +39,9 @@ export default defineComponent({
 
     const loadState = computed(() => store.getters['Discovery/getLoadState'])
     const showContentData = computed(() => store.getters['Discovery/getContentList'])
+    if (loadState.value.loadState === 'loading') {
+      showContentData.value = []
+    }
     return { route, showContentData, loadState }
   }
 })

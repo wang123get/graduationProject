@@ -36,7 +36,7 @@ const routeList: RouteRecordRaw[] = [
         }]
       }, {
         path: '/specials',
-        component: () => import('@/components/Shop/BaseLayout/specialsInter.vue')
+        component: () => import('@/View/mall/cpns/specials.vue')
       }, {
         path: '/search',
         component: () => import('@/View/mall/cpns/searchView.vue')

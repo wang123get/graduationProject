@@ -1,6 +1,7 @@
 import { createStore, Store, useStore as useVuexStore } from 'vuex'
 import Discovery from '@/store/modules/discoveryStore'
 import Coupons from '@/store/modules/couponsStore'
+import Special from '@/store/modules/specialsStore'
 
 const store = createStore({
   state() {
@@ -11,7 +12,8 @@ const store = createStore({
   actions: {},
   modules: {
     Discovery,
-    Coupons
+    Coupons,
+    Special
   }
 })
 
