@@ -15,21 +15,21 @@
       </ul>
     </div>
     <div class="search">
-      <input placeholder="搜索" v-model="myInput"/>
+      <input placeholder="搜索" v-model="myInput" />
       <img
-          style="cursor: pointer"
-          src="~@/assets/image/red_search.png"
-          width="20"
-          class="myImg"
-          @click="searchBtn(myInput)"
+        style="cursor: pointer"
+        src="~@/assets/image/red_search.png"
+        width="20"
+        class="myImg"
+        @click="searchBtn(myInput)"
       />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from 'vue'
-import {useRouter} from 'vue-router'
+import { defineComponent, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   props: {
@@ -42,9 +42,9 @@ export default defineComponent({
     const myInput = ref(props.title)
     const router = useRouter()
     const searchBtn = (text: any) => {
-      router.push('/mall/store/search/' + text)
+      router.push('/search/' + text)
     }
-    return {myInput, searchBtn}
+    return { myInput, searchBtn }
   }
 })
 </script>

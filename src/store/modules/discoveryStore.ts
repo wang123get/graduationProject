@@ -12,7 +12,7 @@ const discoveryModule: Module<any, any> = {
       page: [],
       goodIdList: [] as ShopPagination[],
       goods: [] as Goods[],
-      loadState: 'loading',
+      loadState: 'loading'
     }
   },
   getters: {
@@ -80,6 +80,7 @@ const discoveryModule: Module<any, any> = {
         shopID.id,
         shopID.page
       )
+
       if (state.id !== shopID.id) {
         commit('addNewGoods', shopContentList.data)
         //@ts-ignore

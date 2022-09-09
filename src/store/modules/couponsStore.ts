@@ -47,9 +47,15 @@ const couponsModule: Module<any, any> = {
     },
     changeLoadState(state, loadState: boolean) {
       state.loadState = loadState
+    },
+    clearRecommendContendListGoods(state) {
+      state.recommendContendList = []
     }
   },
   actions: {
+    clearList({commit}) {
+      commit('clearRecommendContendListGoods')
+    },
     changeLoadState({ commit, state }, loadState: boolean) {
       if (state.loadState !== loadState) {
         commit('changeLoadState', loadState)

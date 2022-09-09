@@ -3,26 +3,26 @@
     <div>
       <shop-header />
     </div>
-    <div class='bigBox'>
-      <div class='contentBox'>
+    <div class="bigBox">
+      <div class="contentBox">
         <ul>
-          <template v-for='tag in IDList'>
+          <template v-for="tag in IDList">
             <router-link :to="'/coupons/' + tag.favorites_title">
               <li>
-                <span style='line-height: 40px'>{{ tag.favorites_title }}</span>
+                <span style="line-height: 40px">{{ tag.favorites_title }}</span>
               </li>
             </router-link>
           </template>
         </ul>
       </div>
-      <div class='contentListBox'>
+      <div class="contentListBox">
         <router-view />
       </div>
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { computed, defineComponent } from 'vue'
 import { recommendType } from '@/Api/shop/types'
 import { useStore } from '@/store'
@@ -37,15 +37,16 @@ export default defineComponent({
     }
     getContentID()
 
-    const IDList = computed(() => store.getters['Coupons/getFavoritesIDList']) as unknown as recommendType[]
-
+    const IDList = computed(
+      () => store.getters['Coupons/getFavoritesIDList']
+    ) as unknown as recommendType[]
 
     return { IDList }
   }
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .router-link-exact-active {
   li {
     border-bottom: 2px solid #c9302c;

@@ -22,26 +22,39 @@ const routeList: RouteRecordRaw[] = [
         path: '/coupons',
         component: () => import('@/View/mall/cpns/coupons.vue'),
         redirect: '/coupons/热门推荐',
-        children: [{
-          path: '/coupons/:id',
-          component: () => import('@/components/Shop/BaseLayout/couponsInter.vue')
-        }]
-      }, {
+        children: [
+          {
+            path: '/coupons/:id',
+            component: () =>
+              import('@/components/Shop/BaseLayout/couponsInter.vue')
+          }
+        ]
+      },
+      {
         path: '/discovery',
         redirect: '/discovery/推荐',
         component: () => import('@/View/mall/cpns/discovery.vue'),
-        children: [{
-          path: '/discovery/:id',
-          component: () => import('@/components/Shop/BaseLayout/discoveryInter.vue')
-        }]
-      }, {
+        children: [
+          {
+            path: '/discovery/:id',
+            component: () =>
+              import('@/components/Shop/BaseLayout/discoveryInter.vue')
+          }
+        ]
+      },
+      {
         path: '/specials',
         component: () => import('@/View/mall/cpns/specials.vue')
-      }, {
-        path: '/search',
+      },
+      {
+        path: '/search/:keyword',
         component: () => import('@/View/mall/cpns/searchView.vue')
       }
     ]
+  },
+  {
+    path: '/User/publishedArticle',
+    component: () => import('@/View/User/system/userInfo.vue')
   }
 ]
 

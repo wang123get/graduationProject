@@ -1,85 +1,79 @@
-import upLoadImage from '@/api/Image/upLoadImage'
+// import { uploadImage } from '@/apis/uploadApi'
 
 export default class {
+  //编辑器实例
   editor: toastui.Editor
+  isFullscreen: boolean = false
 
-  constructor(el: string, initialValue: string, height: string) {
+  constructor(el: string, public height: string, initialValue: string) {
     this.editor = new toastui.Editor({
       el: document.querySelector(el),
+      height,
       initialEditType: 'markdown',
       previewStyle: 'vertical',
-      height: height,
-      initialValue: initialValue,
-      toolbarItems: this.myToolbar()
+      initialValue,
+      toolbarItems: this.toolbar()
     })
-    this.ImageHook()
+    // this.imageHook()
   }
 
-  private myToolbar() {
+  //工具条
+  toolbar() {
     return [
-      ['heading', 'bold', 'italic', 'strike'],
+      ['heading', 'bold', 'italic'],
       ['hr', 'quote'],
       ['ul', 'ol', 'task', 'indent', 'outdent'],
       ['table', 'image', 'link'],
       ['code', 'codeblock'],
-      // Using Option: Customize the last button
       [
         {
           el: this.fullscreen(),
-          command: 'bold',
-          tooltip: 'Custom Bold'
+          name: 'fullscreen',
+          tooltip: 'fullscreen'
         }
       ]
     ]
   }
 
+  //全屏设置
   private fullscreen() {
-    const button = document.createElement('button') as HTMLButtonElement
-    button.innerHTML = '全屏'
+    const button = document.createElement('button')
+    button.className = 'toastui-editor-toolbar-icons last'
+    button.style.backgroundImage = 'none'
     button.style.margin = '0'
-    button.style.fontFamily = 'Microsoft YaHei'
+    button.innerHTML = `<span>全屏</span>`
+
     button.addEventListener('click', () => {
-      const ui = document.querySelector(
-        '.toastui-editor-defaultUI'
-      ) as HTMLDivElement
-      ui.classList.toggle('fullscreen')
+      this.editor.setHeight('100vh')
+      let ui = document.querySelector('.toastui-editor-defaultUI') as HTMLDivElement
+      ui.classList.toggle('fullScreen')
+      this.isFullscreen = true
     })
-    document.documentElement.addEventListener(
-      'keyup',
-      (event: KeyboardEvent) => {
-        if (event.key == 'Escape') {
-          const ui = document.querySelector(
-            '.toastui-editor-defaultUI'
-          ) as HTMLDivElement
-          ui.classList.remove('fullscreen')
-        }
+
+    document.documentElement.addEventListener('keyup', (event: KeyboardEvent) => {
+      if (event.key == 'Escape' && this.isFullscreen) {
+        this.editor.setHeight(this.height)
+        let ui = document.querySelector('.toastui-editor-defaultUI') as HTMLDivElement
+        ui.classList.toggle('fullScreen')
+        this.editor.focus()
+        this.isFullscreen = false
       }
-    )
+    })
     return button
   }
 
-  private ImageHook() {
-    this.editor.removeHook('addImageBlobHook')
-
-    this.editor.addHook(
-      'addImageBlobHook',
-      async (blob: any, callback: Function) => {
-        const form = new FormData()
-
-        form.append('file', blob, blob.name)
-        const response = await upLoadImage.upLoad(form)
-        console.log(response.data.url, blob.name)
-        //TODO:图片提交
-        /*
-        例子：
-        const response = await uploadImage(form)
-        uploadImage 请求接口
-        */
-        callback(
-          'https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/love-two.jpeg',
-          blob.name
-        )
-      }
-    )
-  }
+  //图片上传
+  // private imageHook() {
+  //   this.editor.removeHook('addImageBlobHook')
+  //
+  //   this.editor.addHook('addImageBlobHook', async (blob: any, callback: Function) => {
+  //     const formData = new FormData()
+  //     //添加post数据
+  //     formData.append('file', blob, blob.name)
+  //     //上传图片
+  //     const response = await uploadImage(formData)
+  //     //更改编辑器内容
+  //     callback(response.result.url, blob.name)
+  //   })
+  // }
 }

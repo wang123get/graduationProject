@@ -2,7 +2,7 @@ import { createStore, Store, useStore as useVuexStore } from 'vuex'
 import Discovery from '@/store/modules/discoveryStore'
 import Coupons from '@/store/modules/couponsStore'
 import Special from '@/store/modules/specialsStore'
-
+import Search from '@/store/modules/searchStore'
 const store = createStore({
   state() {
     return {}
@@ -13,7 +13,8 @@ const store = createStore({
   modules: {
     Discovery,
     Coupons,
-    Special
+    Special,
+    Search
   }
 })
 

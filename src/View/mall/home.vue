@@ -1,6 +1,6 @@
 <template>
-  <div class='mallHome'>
-    <div class='header'>
+  <div class="mallHome">
+    <div class="header">
       <shop-header />
     </div>
     <div>
@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import ShopHeader from '@/components/Shop/shopHeader.vue'
 import { useRoute } from 'vue-router'
@@ -25,7 +25,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .mallHome {
   .header {
   }

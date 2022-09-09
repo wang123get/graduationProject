@@ -71,6 +71,7 @@ class shopApi {
           store.dispatch('Coupons/changeLoadState', {
             loadState: 'loading'
           })
+          store.dispatch('Coupons/clearList')
           return config
         },
         responseInterceptor: (res) => {
@@ -107,6 +108,12 @@ class shopApi {
     })
   }
 
+  /**
+   * 搜索
+   * @param page 页码
+   * @param keyword 搜索内容
+   * @returns
+   */
   getSearchKey(page: number, keyword: string) {
     return shopRequest.request<searchType>({
       url: `/search`,

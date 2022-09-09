@@ -87,7 +87,7 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="/User/info">个人信息</el-dropdown-item>
-            <el-dropdown-item command="/User/publishArticle"
+            <el-dropdown-item command="/User/publishedArticle"
             >发表文章
             </el-dropdown-item>
             <el-dropdown-item divided command="/User/changePassword"
