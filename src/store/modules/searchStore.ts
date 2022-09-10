@@ -8,54 +8,59 @@ const searchModule: Module<any, any> = {
     return {
       keyword: '',
       pageList: [],
-      goodsList: []
+      goodsList: [],
+      loadState: 'loading'
     }
   },
   getters: {
     getGoodsList(state) {
       return state.goodsList
+    },
+    getLoadState(state) {
+      return state.loadState
     }
   },
   mutations: {
-    addNewGoods(state, goods: []) {
+    clearGoods(state) {
       state.goodsList = []
-      state.goodsList.push(...goods)
     },
     addGoods(state, goods: []) {
       state.goodsList.push(...goods)
     },
     changeKeyword(state, keyword: string) {
       state.keyword = keyword
+    },
+    changeLoadState(state, loading: number) {
+      state.loadState = loading
     }
   },
   actions: {
+    changeLoadStateActions({ commit, state }, loading: string) {
+      if (state.loadState !== loading) {
+        commit('changeLoadState', loading)
+        console.log('change state ====> ',state.loadState)
+      }
+    },
+    clearGoodsList({ commit, state }, keyword: string) {
+      if (state.keyword !== keyword) {
+        commit('clearGoods')
+      } else {
+        return
+      }
+    },
     async getGoodsByKeyword({ commit, state }, value: searchType) {
+      if (value.keyword === undefined || value.keyword === null){
+        return
+      }
       const goodsList = await shopApi.getSearchKey(value.page, value.keyword)
-
-      console.log(
-        '%c [ keyword ]-35',
-        'font-size:13px; background:pink; color:#bf2c9f;',
-        state.keyword,
-        value.keyword
-      )
       const data =
         //@ts-ignore
         goodsList.data.tbk_dg_material_optional_response.result_list.map_data
 
       if (state.keyword !== value.keyword) {
-        console.log(
-          '%c [ true ]-42',
-          'font-size:13px; background:pink; color:#bf2c9f;',
-          true
-        )
-        commit('addNewGoods', data)
         commit('changeKeyword', value.keyword)
+        commit('addGoods', data)
       } else {
-        console.log(
-          '%c [ false ]-42',
-          'font-size:13px; background:pink; color:#bf2c9f;',
-          false
-        )
         commit('addGoods', data)
       }
     }

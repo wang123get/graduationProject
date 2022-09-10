@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <template v-for='content in shopContentList'>
+      <template v-for='content in (shopContentList)'>
         <li>
           <div class='goodCard'>
             <div class='imageType'>
@@ -37,7 +37,9 @@
               <span> · </span>
               <span> 人已买 </span>
             </div>
-            <a :href='content.click_url' target='_blank' class='shopButton'>领卷购买</a>
+            <a :href='content.coupon_click_url' target='_blank' class='shopButton'
+            >领卷购买</a
+            >
           </div>
         </li>
       </template>
@@ -47,6 +49,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+import { Goods } from '@/Api/shop/types'
 
 export default defineComponent({
   props: {
@@ -55,7 +58,6 @@ export default defineComponent({
     }
   }
 })
-
 </script>
 
 <style scoped>
@@ -123,5 +125,4 @@ export default defineComponent({
   background-color: #ff4500;
   border-color: #ff4500;
 }
-
 </style>

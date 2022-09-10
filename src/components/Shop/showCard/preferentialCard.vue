@@ -1,25 +1,27 @@
 <template>
   <ul>
-    <template v-for='content in goodList'>
+    <template v-for="content in (goodList)">
       <li>
-        <div class='contentBox'>
-          <div class='Box' @click='toSell(content.coupon_click_url)'>
-            <div class='imageBox'>
-              <img :src='content.pict_url' style='object-fit: cover' />
-              <div class='savePrice'>省{{ content.coupon_amount }}元</div>
+        <div class="contentBox">
+          <div class="Box" @click="toSell(content.coupon_click_url)">
+            <div class="imageBox">
+              <img :src="content.pict_url" style="object-fit: cover" />
+              <div class="savePrice">省{{ content.coupon_amount }}元</div>
             </div>
-            <div class='textBox'>
-              <div class='price'>
-                <span class='em'>￥{{ content.zk_final_price }}</span>
+            <div class="textBox">
+              <div class="price">
+                <span class="em">￥{{ content.zk_final_price }}</span>
                 <span></span>
                 劵后价：<span>{{
-                  (Number(content.zk_final_price) - content.coupon_amount).toFixed(2)
+                  (
+                    Number(content.zk_final_price) - content.coupon_amount
+                  ).toFixed(2)
                 }}</span>
               </div>
-              <div class='sellNumber'>
+              <div class="sellNumber">
                 <span>{{ content.volume }}</span> ·人已购买
               </div>
-              <div class='goodsTitle'>
+              <div class="goodsTitle">
                 {{ content.title }}
               </div>
             </div>
@@ -28,10 +30,10 @@
       </li>
     </template>
   </ul>
-
 </template>
 
-<script lang='ts'>
+<script lang="ts">
+import { preferentialType } from '@/Api/shop/types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -42,15 +44,14 @@ export default defineComponent({
   },
   setup(props) {
     const toSell = (couponClickUrl: string) => {
-      window.open('https://' + couponClickUrl, '_blank')
+      window.open('https:' + couponClickUrl, '_blank')
     }
     return { toSell }
   }
 })
 </script>
 
-<style scoped lang='less'>
-
+<style scoped lang="less">
 .contentBox {
   background-color: white;
   margin-bottom: 20px;
