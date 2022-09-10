@@ -2,17 +2,18 @@
 
 export default class {
   //编辑器实例
-  editor: toastui.Editor
-  isFullscreen: boolean = false
+  public editor: toastui.Editor
+  public isFullscreen: boolean = false
 
-  constructor(el: string, public height: string, initialValue: string) {
+  constructor(el: string, public height: string, initialValue: string, placeholder: string) {
     this.editor = new toastui.Editor({
       el: document.querySelector(el),
       height,
       initialEditType: 'markdown',
       previewStyle: 'vertical',
       initialValue,
-      toolbarItems: this.toolbar()
+      toolbarItems: this.toolbar(),
+      placeholder: placeholder
     })
     // this.imageHook()
   }

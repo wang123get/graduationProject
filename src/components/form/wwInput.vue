@@ -1,5 +1,5 @@
 <template>
-  <input class='myInput' @input='input' :value='modelValue' />
+  <input class='myInput' @input='input' :value='modelValue' :placeholder='placeholder'/>
 </template>
 
 <script lang='ts'>
@@ -7,7 +7,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'wwInput',
-  props: ['modelValue'],
+  props: ['modelValue','placeholder'],
   setup(props, { emit }) {
     const input = (e: any) => {
       emit('update:modelValue', e.target.value)

@@ -82,6 +82,9 @@ export default defineComponent({
       text-align: center;
       margin: 0 3px 10px;
     }
+    .content-list {
+      background-color: white;
+    }
 
     .emStyle {
       margin-left: 5px;

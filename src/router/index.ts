@@ -54,8 +54,35 @@ const routeList: RouteRecordRaw[] = [
   },
   {
     path: '/User/publishedArticle',
-    component: () => import('@/View/User/system/userInfo.vue')
+    component: () => import('@/View/User/system/publishedArticle.vue')
+  },
+  {
+    path: '/User/info',
+    component: () => import('@/View/User/system/userInfo.vue'),
+    redirect: '/basicInformation',
+    children:[
+      {
+        path: '/basicInformation',
+        component:() => import('@/components/User/View/basicInformation.vue')
+      },
+      {
+        path: '/password',
+        component:() => import('@/components/User/View/changePassword.vue')
+      },
+      {
+        path: '/vip',
+        component:() => import('@/components/User/View/Vip.vue')
+      },
+      {
+        path: '/resources',
+        component:() => import('@/components/User/View/resources.vue')
+      },
+      {
+        path: '/article',
+        component:() => import('@/components/User/View/articles.vue')
+      }
+    ]
   }
-]
+  ]
 
 export default routeList
