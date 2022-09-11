@@ -67,7 +67,7 @@
       <el-dropdown @command="handleCooand">
         <span>
           <el-avatar
-            src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/love-two.jpeg"
+            src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg"
           />
           <span
             style="

@@ -63,7 +63,7 @@ const routeList: RouteRecordRaw[] = [
     children:[
       {
         path: '/basicInformation',
-        component:() => import('@/components/User/View/basicInformation.vue')
+        component:() => import('@/components/User/View/basicInformation.vue'),
       },
       {
         path: '/password',
