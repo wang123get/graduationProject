@@ -38,7 +38,6 @@ const searchModule: Module<any, any> = {
     changeLoadStateActions({ commit, state }, loading: string) {
       if (state.loadState !== loading) {
         commit('changeLoadState', loading)
-        console.log('change state ====> ',state.loadState)
       }
     },
     clearGoodsList({ commit, state }, keyword: string) {

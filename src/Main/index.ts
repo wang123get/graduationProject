@@ -5,6 +5,7 @@ import { setupTailwindcss } from '@/Main/plugins/tailwindcss'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
+
 export function setupPlugins(app: App) {
   app.use(store)
   app.use(router)
