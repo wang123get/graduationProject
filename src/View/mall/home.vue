@@ -28,6 +28,7 @@ export default defineComponent({
 <style scoped lang="less">
 .mallHome {
   .header {
+    width: 100%;
   }
 }
 </style>

@@ -1,9 +1,8 @@
 <template>
   <div>
-    <show-home />
+    <show-home/>
   </div>
   <div class='showContent'>
-
   </div>
 </template>
 
