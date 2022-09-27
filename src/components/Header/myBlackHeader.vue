@@ -26,7 +26,7 @@
           <el-dropdown style='margin-top: 3px' @command='handleCooand'>
                   <span>
                     <img src='~@/assets/image/darkFei.png' width='18' /><a>分类</a>
-                    <el-icon class='el-icon--right' style='color: white'>
+                    <el-icon class='el-icon--right' style='color: purple'>
                       <arrow-down />
                     </el-icon>
                   </span>
@@ -60,7 +60,7 @@
                       src='https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg'
                     />
                     <span class='userName'>awddawsdwad
-                      <el-icon class='el-icon--right' style='color: white'>
+                      <el-icon class='el-icon--right' style='color: rgb(110, 11, 241)'>
                         <arrow-down />
                       </el-icon>
                     </span>
