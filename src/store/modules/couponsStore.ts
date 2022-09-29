@@ -53,7 +53,7 @@ const couponsModule: Module<any, any> = {
     }
   },
   actions: {
-    clearList({commit}) {
+    clearList({ commit }) {
       commit('clearRecommendContendListGoods')
     },
     changeLoadState({ commit, state }, loadState: boolean) {

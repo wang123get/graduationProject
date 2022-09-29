@@ -42,16 +42,18 @@ const specialModule: Module<any, any> = {
       shopID: queryPreferentialType
     ) {
       const shopContentList = await shopApi.getPreferential(shopID.page)
+      //@ts-ignore
       const DataList =
         //@ts-ignore
         shopContentList.data.tbk_dg_optimus_material_response.result_list
           .map_data
-
+      console.log('aaaaa', DataList)
       if (!state.pageList.includes(shopID.page)) {
         commit('addGoods', DataList)
         commit('addPageList', shopID.page)
       }
     }
+
   }
 }
 

@@ -2,10 +2,6 @@ import { RouteRecordRaw } from 'vue-router'
 
 const routeList: RouteRecordRaw[] = [
   {
-    path: '/demo',
-    component: () => import('@/components/loading/BigLoad.vue')
-  },
-  {
     path: '/login',
     component: () => import('@/View/User/system/login.vue')
   },

@@ -1,60 +1,65 @@
 <template>
   <div>
     <discovery-card
-      :shop-content-list="showContentData"
-      v-if="loadState.loadState === 'ok'"
+      :shop-content-list='showContentData'
     />
-    <div class="loadBox" v-if="loadState.loadState === 'loading'">
-      <img src="src/assets/image/loading.gif" class="DLoading" />
+    <div class='loadBox' v-if="loadState.loadState === 'loading'">
+      <img src='src/assets/image/loading.gif' class='DLoading' />
     </div>
   </div>
+
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, ref, watch } from 'vue'
+<script lang='ts'>
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import { shopIDList } from '@/components/Shop/BaseLayout/config'
 import DiscoveryCard from '@/components/Shop/showCard/discoveryCard.vue'
+import { loadMore } from '@/components/loadMore/dropDrowLoadMore'
 
 export default defineComponent({
   components: { DiscoveryCard },
   setup() {
     const route = useRoute()
     const store = useStore()
-
-    const getDiscoveryData = (url: string) => {
+    let page = ref(1)
+    const getDiscoveryData = (url: string, page: number) => {
       store.dispatch('Discovery/shopContentListActions', {
         //@ts-ignore
         id: shopIDList[url],
-        page: 1
+        page: page
       })
     }
 
-    watch(
-      () => route.params.id,
-      (newV) => {
-        getDiscoveryData(newV as unknown as string)
-      }
-    )
+    loadMore(() => {
+      getDiscoveryData(route.params.id as unknown as string, page.value++)
+    })
 
-    getDiscoveryData(route.params.id as unknown as string)
+
+    getDiscoveryData(route.params.id as unknown as string, page.value)
 
     const loadState = computed(() => store.getters['Discovery/getLoadState'])
     const showContentData = computed(
       () => store.getters['Discovery/getContentList']
     )
 
-    if (loadState.value.loadState === 'loading') {
-      //@ts-ignore
-      showContentData.value = []
-    }
-    return { route, showContentData, loadState }
+    console.log(showContentData)
+
+    watch(
+      () => route.params.id,
+      (newV) => {
+        page.value = 1
+        showContentData.value.length = 0
+        getDiscoveryData(newV as unknown as string, page.value)
+      }
+    )
+    return { route, showContentData, loadState, page }
   }
 })
 </script>
 
-<style scoped lang="less">
+<style scoped lang='less'>
 .loadBox {
   background-color: white;
   box-shadow: 0 5px 10px #d4d4d4;

@@ -26,6 +26,7 @@
 import { computed, defineComponent } from 'vue'
 import { recommendType } from '@/Api/shop/types'
 import { useStore } from '@/store'
+import { loadMore } from '@/components/loadMore/dropDrowLoadMore'
 
 export default defineComponent({
   name: 'coupons',

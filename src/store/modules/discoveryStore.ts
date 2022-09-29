@@ -12,7 +12,7 @@ const discoveryModule: Module<any, any> = {
       page: [],
       goodIdList: [] as ShopPagination[],
       goods: [] as Goods[],
-      loadState: 'loading'
+      loadState: 'repeatLoading'
     }
   },
   getters: {
@@ -37,7 +37,7 @@ const discoveryModule: Module<any, any> = {
       state.goods.push(...goods)
     },
     addNewGoods(state, goods: Goods[]) {
-      state.goods = []
+      state.goods.length = 0
       state.goods.push(...goods)
     },
     addIDList(state, idList: ShopPagination[]) {

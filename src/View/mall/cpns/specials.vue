@@ -1,18 +1,19 @@
 <template>
-  <div class="specials">
-    <div class="box">
-      <preferential-card :good-list="showContentList" />
-      <div class="DLoading" v-if="loadState.loadState === 'loading'">
-        <img src="src/assets/image/loadLove.gif" alt="" />
+  <div class='specials'>
+    <div class='box'>
+      <preferential-card :good-list='showContentList' />
+      <div class='DLoading' v-if="loadState.loadState === 'loading'">
+        <img src='src/assets/image/loadLove.gif' alt='' />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { computed, defineComponent } from 'vue'
 import PreferentialCard from '@/components/Shop/showCard/preferentialCard.vue'
 import { useStore } from '@/store'
+import { loadMore } from '@/components/loadMore/dropDrowLoadMore'
 
 export default defineComponent({
   name: 'specials',
@@ -24,7 +25,12 @@ export default defineComponent({
         page: page
       })
     }
-    startSpecials(1)
+    let page = 1
+    startSpecials(page)
+
+    loadMore(() => {
+      startSpecials(page++)
+    })
 
     const showContentList = computed(
       () => store.getters['Special/getContentList']
@@ -35,7 +41,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="less">
+<style scoped lang='less'>
 .box {
   width: 1140px;
   margin: 20px auto;
