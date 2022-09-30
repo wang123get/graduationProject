@@ -1,26 +1,26 @@
 <template>
   <div>
-    <div class='header' style='position: absolute; width: 100%'>
+    <div class="header" style="position: absolute; width: 100%">
       <my-header />
     </div>
-    <div class='welcomeImage' style='width: 100%; opacity: 1'>
-      <img class='box-image' src='~@/assets/image/leisure-time.jpg' alt='' />
+    <div class="welcomeImage" style="width: 100%; opacity: 1">
+      <img class="box-image" src="~@/assets/image/leisure-time.jpg" alt="" />
     </div>
 
-    <div style='display: flex; justify-content: center; align-items: center'>
-      <div class='show-text'>
-        <span style='font-size: 2.85em; font-weight: bold'>休闲客栈</span>
-        <write-code class='codeWrite' />
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div class="show-text">
+        <span style="font-size: 2.85em; font-weight: bold">休闲客栈</span>
+        <write-code class="codeWrite" />
       </div>
     </div>
 
-    <div class='down'>
-      <img src='~@/assets/image/down.png' alt='' />
+    <div class="down">
+      <img src="~@/assets/image/down.png" alt="" />
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import myHeader from '@/components/Header/myHeader.vue'
 import writeCode from '@/components/autoWriteCode/writeCode.vue'
@@ -41,7 +41,7 @@ export default defineComponent({
   color: white;
   position: absolute;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
-  Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
 .codeWrite {
@@ -55,7 +55,7 @@ export default defineComponent({
 .down {
   position: absolute;
   width: 30px;
-  bottom: 0px;
+  bottom: 0;
   left: 50%;
   opacity: 0.5;
   animation: scaleout 1.2s infinite ease-in-out;
@@ -73,9 +73,9 @@ export default defineComponent({
 
 .box-image {
   width: 100%;
-  height: 930px;
+  height: 1000px;
   background-size: cover;
   box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.36),
-  0px 8px 20px rgba(0, 0, 0, 0.72);
+    0px 8px 20px rgba(0, 0, 0, 0.72);
 }
 </style>

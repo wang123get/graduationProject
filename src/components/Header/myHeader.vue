@@ -1,38 +1,36 @@
 <template>
-  <div class='myHeader'>
-    <div class='title'>
-      <div class='titleImg'>
-        <img
-          src='~@/assets/coffee.svg'
-        />
+  <div class="myHeader">
+    <div class="title">
+      <div class="titleImg">
+        <img src="~@/assets/coffee.svg" />
       </div>
-      <span class='titileName'>休闲客栈</span>
+      <span class="titileName">休闲客栈</span>
     </div>
-    <div class='pageList'>
+    <div class="pageList">
       <ul>
         <li>
-          <img src='~@/assets/image/home.png' width='18' /><a
-          @click='chickRouterM()'
-        >首页</a
-        >
+          <img src="~@/assets/image/home.png" width="18" /><a
+            @click="chickRouterM()"
+            >首页</a
+          >
         </li>
         <li>
-          <img src='~@/assets/image/luntan.png' width='18' /><a
-          @click='chickRouterM()'
-        >交流论坛</a
-        >
+          <img src="~@/assets/image/luntan.png" width="18" /><a
+            @click="chickRouterC()"
+            >摸鱼</a
+          >
         </li>
         <li>
-          <el-dropdown style='margin-top: 3px' @command='handleCooand'>
-                  <span>
-                    <img src='~@/assets/image/classify.png' width='18' /><a>分类</a>
-                    <el-icon class='el-icon--right' style='color: white'>
-                      <arrow-down />
-                    </el-icon>
-                  </span>
+          <el-dropdown style="margin-top: 3px" @command="handleCooand">
+            <span>
+              <img src="~@/assets/image/classify.png" width="18" /><a>分类</a>
+              <el-icon class="el-icon--right" style="color: white">
+                <arrow-down />
+              </el-icon>
+            </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command='/mall'>商城</el-dropdown-item>
+                <el-dropdown-item command="/mall">商城</el-dropdown-item>
                 <el-dropdown-item>项目</el-dropdown-item>
                 <el-dropdown-item>学习资料</el-dropdown-item>
               </el-dropdown-menu>
@@ -40,42 +38,43 @@
           </el-dropdown>
         </li>
         <li>
-          <img src='~@/assets/image/time.png' width='20' /><a
-          @click='chickRouterT()'
-        >时间轴</a
-        >
+          <img src="~@/assets/image/time.png" width="20" /><a
+            @click="chickRouterT()"
+            >时间轴</a
+          >
         </li>
         <li>
-          <img src='~@/assets/image/book.png' width='18' /><a
-          @click='chickRouterP()'
-        >标签</a
-        >
+          <img src="~@/assets/image/book.png" width="18" /><a
+            @click="chickRouterP()"
+            >标签</a
+          >
         </li>
       </ul>
     </div>
-    <div class='UserInfo'>
-      <el-dropdown @command='handleCooand'>
-                  <span>
-                    <el-avatar
-                      src='https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg'
-                    />
-                    <span class='userName'>awddawsdwad
-                      <el-icon class='el-icon--right' style='color: white'>
-                        <arrow-down />
-                      </el-icon>
-                    </span>
-                  </span>
+    <div class="UserInfo">
+      <el-dropdown @command="handleCooand">
+        <span>
+          <el-avatar
+            src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg"
+          />
+          <span class="userName"
+            >awddawsdwad
+            <el-icon class="el-icon--right" style="color: white">
+              <arrow-down />
+            </el-icon>
+          </span>
+        </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item command='User/info'>个人信息</el-dropdown-item>
-            <el-dropdown-item command='User/publishedArticle'
-            >发表文章
+            <el-dropdown-item command="User/info">个人信息</el-dropdown-item>
+            <el-dropdown-item command="User/publishedArticle"
+              >发表文章
             </el-dropdown-item>
-            <el-dropdown-item divided command='User/changePassword'
-            >修改密码
+            <el-dropdown-item divided command="User/changePassword"
+              >修改密码
             </el-dropdown-item>
-            <el-dropdown-item command='User/outLogin'
-            >退出登录
+            <el-dropdown-item command="User/outLogin"
+              >退出登录
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -84,7 +83,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -109,8 +108,11 @@ export default defineComponent({
       router.push('/home')
     }
 
-    const chickRouterP = () => {
+    const chickRouterC = () => {
+      router.push('/communication')
     }
+
+    const chickRouterP = () => {}
 
     const chickRouterT = () => {
       router.push({
@@ -121,13 +123,14 @@ export default defineComponent({
       chickRouterM,
       chickRouterT,
       chickRouterP,
-      handleCooand
+      handleCooand,
+      chickRouterC
     }
   }
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .myHeader {
   width: 100%;
   background-color: rgba(255, 255, 255, 0);

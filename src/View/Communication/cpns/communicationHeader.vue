@@ -1,30 +1,24 @@
 <template>
   <div class="myHeader">
     <div class="title">
-      <div class="titleImg">
-        <img src="~@/assets/coffee.svg" />
-      </div>
       <span class="titileName">休闲客栈</span>
     </div>
     <div class="pageList">
       <ul>
         <li>
-          <img src="~@/assets/image/darkHome.png" width="18" /><a
-            @click="chickRouterM()"
-            >首页</a
-          >
+          <a @click="chickRouterM()">首页</a>
         </li>
         <li>
-          <img src="~@/assets/image/luntan-purple.png" width="18" /><a
-            @click="chickRouterC()"
-            >摸鱼</a
-          >
+          <a @click="chickRouterC()">摸鱼</a>
         </li>
         <li>
           <el-dropdown style="margin-top: 3px" @command="handleCooand">
-            <span>
-              <img src="~@/assets/image/darkFei.png" width="18" /><a>分类</a>
-              <el-icon class="el-icon--right" style="color: purple">
+            <span style="font-size: 18px">
+              <a>分类</a>
+              <el-icon
+                class="el-icon--right"
+                style="color: #656c76; margin-bottom: 5px"
+              >
                 <arrow-down />
               </el-icon>
             </span>
@@ -38,16 +32,10 @@
           </el-dropdown>
         </li>
         <li>
-          <img src="~@/assets/image/darkTime.png" width="20" /><a
-            @click="chickRouterT()"
-            >时间轴</a
-          >
+          <a @click="chickRouterT()">时间轴</a>
         </li>
         <li>
-          <img src="~@/assets/image/darkBook.png" width="18" /><a
-            @click="chickRouterP()"
-            >标签</a
-          >
+          <a @click="chickRouterP()">标签</a>
         </li>
       </ul>
     </div>
@@ -59,7 +47,7 @@
           />
           <span class="userName"
             >awddawsdwad
-            <el-icon class="el-icon--right" style="color: rgb(110, 11, 241)">
+            <el-icon class="el-icon--right" style="color: #656c76">
               <arrow-down />
             </el-icon>
           </span>
@@ -131,24 +119,19 @@ export default defineComponent({
   height: 60px;
   position: relative;
   display: flex;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: white;
   box-shadow: 0 5px 6px -5px rgba(133, 133, 133, 0.6);
+
   .title {
     width: 124px;
     margin-left: 100px;
     flex-shrink: 0;
     float: left;
 
-    .titleImg {
-      width: 40px;
-      float: left;
-      margin-top: 10px;
-    }
-
     .titileName {
       font-size: 1.3em;
       line-height: 60px;
-      color: rgb(110, 11, 241);
+      color: #3377ff;
       font-weight: bold;
     }
   }
@@ -171,17 +154,11 @@ export default defineComponent({
         transition: 0.2s all linear;
         transform: translate(-50%, -50%);
 
-        img {
-          margin-bottom: 5px;
-          margin-right: 5px;
-          display: inline;
-        }
-
         a {
           text-decoration: none;
           font-weight: 550;
-          font-size: 14px;
-          color: rgb(110, 11, 241);
+          font-size: 18px;
+          color: #656c76;
         }
       }
 
@@ -192,7 +169,7 @@ export default defineComponent({
         right: 100%;
         width: 0;
         height: 100%;
-        border-bottom: 2px solid rgb(110, 11, 241);
+        border-bottom: 2px solid #2c99ff;
         transition: 0.2s all linear;
       }
 
@@ -201,7 +178,7 @@ export default defineComponent({
         top: 0;
         right: 0;
         transition-delay: 0.1s;
-        border-bottom-color: rgb(110, 11, 241);
+        border-bottom-color: #2c99ff;
         z-index: -1;
       }
 
@@ -224,7 +201,7 @@ export default defineComponent({
       position: relative;
       left: 10px;
       top: -13px;
-      color: rgb(110, 11, 241);
+      color: #656c76;
       font-weight: 500;
       font-size: 16px;
     }

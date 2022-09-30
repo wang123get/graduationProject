@@ -136,14 +136,14 @@ export interface searchType {
   title: string
   tk_total_commi: string
   tk_total_sales: string
-  url: string,
-  user_type: number,
-  volume: number,
-  white_image: string,
-  x_id: string,
-  zk_final_price: string,
-  jdd_num: number,
-  jdd_price: null,
-  oetime: null,
+  url: string
+  user_type: number
+  volume: number
+  white_image: string
+  x_id: string
+  zk_final_price: string
+  jdd_num: number
+  jdd_price: null
+  oetime: null
   ostime: null
 }

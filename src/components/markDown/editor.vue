@@ -1,9 +1,9 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { nextTick } from 'vue'
 import toastEditor from '@/components/markDown/config/toastEditor'
 
 interface Props {
-  modelValue?: string,
+  modelValue?: string
   placeholder?: string
   height?: string
 }
@@ -17,20 +17,27 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits(['update:modelValue'])
 
 nextTick(() => {
-  const markdownEditor = new toastEditor('#editor', props.height, props.modelValue,props.placeholder)
+  const markdownEditor = new toastEditor(
+    '#editor',
+    props.height,
+    props.modelValue,
+    props.placeholder
+  )
 
   markdownEditor.editor.on('change', (type: string) => {
-    emit('update:modelValue', markdownEditor.editor[type == 'markdown' ? 'getMarkdown' : 'getHTML']())
+    emit(
+      'update:modelValue',
+      markdownEditor.editor[type == 'markdown' ? 'getMarkdown' : 'getHTML']()
+    )
   })
 })
-
 </script>
 
 <template>
-  <div id='editor'></div>
+  <div id="editor"></div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 #editor {
   @apply bg-white;
 

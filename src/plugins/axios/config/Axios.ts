@@ -60,11 +60,15 @@ class Axios {
     })
   }
 
-  get<T>(config: wwRequestConfig<ResponseResult<T>>): Promise<ResponseResult<T>> {
+  get<T>(
+    config: wwRequestConfig<ResponseResult<T>>
+  ): Promise<ResponseResult<T>> {
     return this.request<T>({ ...config, method: 'GET' })
   }
 
-  post<T>(config: wwRequestConfig<ResponseResult<T>>): Promise<ResponseResult<T>> {
+  post<T>(
+    config: wwRequestConfig<ResponseResult<T>>
+  ): Promise<ResponseResult<T>> {
     return this.request<T>({ ...config, method: 'POST' })
   }
 }

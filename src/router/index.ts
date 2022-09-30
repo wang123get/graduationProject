@@ -10,6 +10,17 @@ const routeList: RouteRecordRaw[] = [
     component: () => import('@/View/home/home.vue')
   },
   {
+    path: '/communication',
+    component: () => import('@/View/Communication/communicationView.vue'),
+    redirect:'/communication/推荐',
+    children: [
+      {
+        path: '/communication/:context',
+        component:() => import('@/components/communication/showContent.vue'),
+      }
+    ]
+  },
+  {
     path: '/mall',
     component: () => import('@/View/mall/home.vue'),
     redirect: '/discovery',
@@ -56,29 +67,29 @@ const routeList: RouteRecordRaw[] = [
     path: '/User/info',
     component: () => import('@/View/User/system/userInfo.vue'),
     redirect: '/basicInformation',
-    children:[
+    children: [
       {
         path: '/basicInformation',
-        component:() => import('@/components/User/View/basicInformation.vue'),
+        component: () => import('@/components/User/View/basicInformation.vue')
       },
       {
         path: '/password',
-        component:() => import('@/components/User/View/changePassword.vue')
+        component: () => import('@/components/User/View/changePassword.vue')
       },
       {
         path: '/vip',
-        component:() => import('@/components/User/View/Vip.vue')
+        component: () => import('@/components/User/View/Vip.vue')
       },
       {
         path: '/resources',
-        component:() => import('@/components/User/View/resources.vue')
+        component: () => import('@/components/User/View/resources.vue')
       },
       {
         path: '/article',
-        component:() => import('@/components/User/View/articles.vue')
+        component: () => import('@/components/User/View/articles.vue')
       }
     ]
   }
-  ]
+]
 
 export default routeList

@@ -5,7 +5,12 @@ export default class {
   public editor: toastui.Editor
   public isFullscreen: boolean = false
 
-  constructor(el: string, public height: string, initialValue: string, placeholder: string) {
+  constructor(
+    el: string,
+    public height: string,
+    initialValue: string,
+    placeholder: string
+  ) {
     this.editor = new toastui.Editor({
       el: document.querySelector(el),
       height,
@@ -46,20 +51,27 @@ export default class {
 
     button.addEventListener('click', () => {
       this.editor.setHeight('100vh')
-      let ui = document.querySelector('.toastui-editor-defaultUI') as HTMLDivElement
+      let ui = document.querySelector(
+        '.toastui-editor-defaultUI'
+      ) as HTMLDivElement
       ui.classList.toggle('fullScreen')
       this.isFullscreen = true
     })
 
-    document.documentElement.addEventListener('keyup', (event: KeyboardEvent) => {
-      if (event.key == 'Escape' && this.isFullscreen) {
-        this.editor.setHeight(this.height)
-        let ui = document.querySelector('.toastui-editor-defaultUI') as HTMLDivElement
-        ui.classList.toggle('fullScreen')
-        this.editor.focus()
-        this.isFullscreen = false
+    document.documentElement.addEventListener(
+      'keyup',
+      (event: KeyboardEvent) => {
+        if (event.key == 'Escape' && this.isFullscreen) {
+          this.editor.setHeight(this.height)
+          let ui = document.querySelector(
+            '.toastui-editor-defaultUI'
+          ) as HTMLDivElement
+          ui.classList.toggle('fullScreen')
+          this.editor.focus()
+          this.isFullscreen = false
+        }
       }
-    })
+    )
     return button
   }
 

@@ -1,39 +1,39 @@
 <template>
-    <ul>
-      <template v-for='content in goodList'>
-        <li>
-          <div class='contentBox'>
-            <div class='Box' @click='toSell(content.coupon_share_url)'>
-              <div class='imageBox'>
-                <img :src='content.pict_url' style='object-fit: cover' />
-                <div class='savePrice'>省{{ content.coupon_amount }}元</div>
+  <ul>
+    <template v-for="content in goodList">
+      <li>
+        <div class="contentBox">
+          <div class="Box" @click="toSell(content.coupon_share_url)">
+            <div class="imageBox">
+              <img :src="content.pict_url" style="object-fit: cover" />
+              <div class="savePrice">省{{ content.coupon_amount }}元</div>
+            </div>
+            <div class="textBox">
+              <div class="price">
+                <span class="em">￥{{ content.zk_final_price }}</span>
+                <span></span>
+                劵后价：<span>{{
+                  (
+                    Number(content.zk_final_price) -
+                    Number(content.coupon_amount)
+                  ).toFixed(2)
+                }}</span>
               </div>
-              <div class='textBox'>
-                <div class='price'>
-                  <span class='em'>￥{{ content.zk_final_price }}</span>
-                  <span></span>
-                  劵后价：<span>{{
-                    (
-                      Number(content.zk_final_price) -
-                      Number(content.coupon_amount)
-                    ).toFixed(2)
-                  }}</span>
-                </div>
-                <div class='sellNumber'>
-                  <span>{{ content.volume }}</span> ·人已购买
-                </div>
-                <div class='goodsTitle'>
-                  {{ content.title }}
-                </div>
+              <div class="sellNumber">
+                <span>{{ content.volume }}</span> ·人已购买
+              </div>
+              <div class="goodsTitle">
+                {{ content.title }}
               </div>
             </div>
           </div>
-        </li>
-      </template>
-    </ul>
+        </div>
+      </li>
+    </template>
+  </ul>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { searchType } from '@/Api/shop/types'
 import { defineComponent } from 'vue'
 
@@ -52,7 +52,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .contentBox {
   background-color: white;
   margin-bottom: 20px;

@@ -53,7 +53,6 @@ const specialModule: Module<any, any> = {
         commit('addPageList', shopID.page)
       }
     }
-
   }
 }
 

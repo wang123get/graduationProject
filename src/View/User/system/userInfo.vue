@@ -1,30 +1,29 @@
 <template>
-  <div class='userInfo'>
-    <div class='header'>
+  <div class="userInfo">
+    <div class="header">
       <my-black-header />
     </div>
-    <div class='bigBox'>
-      <div class='leftBox'>
-        <div class='userAvatar'>
+    <div class="bigBox">
+      <div class="leftBox">
+        <div class="userAvatar">
           <avatar-card />
         </div>
       </div>
-      <div class='contentList'>
-        <tree-show :options='options'/>
+      <div class="contentList">
+        <tree-show :options="options" />
       </div>
-      <div class='showList'>
+      <div class="showList">
         <router-view />
       </div>
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import MyBlackHeader from '@/components/Header/myBlackHeader.vue'
 import AvatarCard from '@/components/User/avatarCard.vue'
 import TreeShow from '@/components/User/config/treeShow.vue'
-
 
 export default defineComponent({
   name: 'userInfo',
@@ -42,9 +41,8 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .userInfo {
-
   .bigBox {
     width: 1100px;
     margin: 20px auto;
@@ -54,7 +52,7 @@ export default defineComponent({
         width: 600px;
       }
     }
-    .contentList{
+    .contentList {
       margin-left: 100px;
     }
     .showList {
@@ -66,7 +64,4 @@ export default defineComponent({
     }
   }
 }
-
-
-
 </style>

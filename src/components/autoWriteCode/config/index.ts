@@ -1,4 +1,4 @@
-export function write(textList:string[]) {
+export function write(textList: string[]) {
   const textEl = document.querySelector('#text')
   const texts = textList
 

@@ -1,10 +1,8 @@
 <template>
-  <div>
-    Vip
-  </div>
+  <div>Vip</div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -16,6 +14,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
-
-</style>
+<style scoped lang="less"></style>

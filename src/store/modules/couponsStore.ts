@@ -11,7 +11,7 @@ const couponsModule: Module<any, any> = {
       favoritesTitle: '',
       favoritesIDList: [] as recommendType[],
       recommendContendList: [] as recommendContentList[],
-      loadState: 'loading',
+      loadState: 'loading'
     }
   },
   getters: {
@@ -32,7 +32,6 @@ const couponsModule: Module<any, any> = {
       }
     },
     changeId(state, id: number) {
-
       state.favoritesID = id
     },
     changeTitle(state, title: string) {

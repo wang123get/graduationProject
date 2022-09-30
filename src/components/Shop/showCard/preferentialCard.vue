@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <template v-for="content in (goodList)">
+    <template v-for="content in goodList">
       <li>
         <div class="contentBox">
           <div class="Box" @click="toSell(content.coupon_click_url)">

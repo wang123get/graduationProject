@@ -1,16 +1,13 @@
 <template>
   <div>
-    <discovery-card
-      :shop-content-list='showContentData'
-    />
-    <div class='loadBox' v-if="loadState.loadState === 'loading'">
-      <img src='src/assets/image/loading.gif' class='DLoading' />
+    <discovery-card :shop-content-list="showContentData" />
+    <div class="loadBox" v-if="loadState.loadState === 'loading'">
+      <img src="src/assets/image/loading.gif" class="DLoading" />
     </div>
   </div>
-
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { computed, defineComponent, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
@@ -36,7 +33,6 @@ export default defineComponent({
       getDiscoveryData(route.params.id as unknown as string, page.value++)
     })
 
-
     getDiscoveryData(route.params.id as unknown as string, page.value)
 
     const loadState = computed(() => store.getters['Discovery/getLoadState'])
@@ -59,7 +55,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .loadBox {
   background-color: white;
   box-shadow: 0 5px 10px #d4d4d4;

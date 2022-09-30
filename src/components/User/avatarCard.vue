@@ -1,17 +1,15 @@
 <template>
   <el-row>
-    <el-col
-      :span='8'
-    >
+    <el-col :span="8">
       <el-card :body-style="{ padding: '0px' }">
         <img
-          src='https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg'
-          class='image'
+          src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg"
+          class="image"
         />
-        <div style='padding: 14px'>
+        <div style="padding: 14px">
           <span>coderWW</span>
-          <div class='bottom'>
-            <time class='time'>{{ currentDate }}</time>
+          <div class="bottom">
+            <time class="time">{{ currentDate }}</time>
           </div>
         </div>
       </el-card>
@@ -19,7 +17,7 @@
   </el-row>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
@@ -32,8 +30,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
-
+<style scoped lang="less">
 .time {
   font-size: 12px;
   color: #999;
@@ -56,5 +53,4 @@ export default defineComponent({
   width: 100%;
   display: block;
 }
-
 </style>

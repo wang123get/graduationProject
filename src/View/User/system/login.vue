@@ -1,56 +1,53 @@
 <template>
-  <div class='login'>
-    <div class='box'>
-      <div class='p-6'>
-        <h2 class='text-center text-gray-700 text-lg mt-1'>用户登录</h2>
-        <form @submit='userLogin'>
-          <div class='mt-6'>
+  <div class="login">
+    <div class="box">
+      <div class="p-6">
+        <h2 class="text-center text-gray-700 text-lg mt-1">用户登录</h2>
+        <form @submit="userLogin">
+          <div class="mt-6">
             <ww-input
-              type='text'
-              placeholder='请输入邮箱或手机号'
-              v-model='usernameValue'
+              type="text"
+              placeholder="请输入邮箱或手机号"
+              v-model="usernameValue"
             />
-            <p class='inputErrorStyle' v-if='errors.username'>
+            <p class="inputErrorStyle" v-if="errors.username">
               {{ errors.username }}
             </p>
             <ww-input
-              type='password'
-              placeholder='请输入密码'
-              class='mt-6'
-              v-model='passwordValue'
+              type="password"
+              placeholder="请输入密码"
+              class="mt-6"
+              v-model="passwordValue"
             />
-            <p class='inputErrorStyle' v-if='errors.password'>
+            <p class="inputErrorStyle" v-if="errors.password">
               {{ errors.password }}
             </p>
           </div>
-          <div style='float: right' class='mt-1'>
-            <el-checkbox label='记住密码' />
+          <div style="float: right" class="mt-1">
+            <el-checkbox label="记住密码" />
           </div>
-          <ww-button class='mt-1'>登录</ww-button>
+          <ww-button class="mt-1">登录</ww-button>
         </form>
-        <div class='flex gap-2 justify-center mt-5'>
-          <router-link to='/home' class='text-sm text-gray-700'
-          >网站首页
+        <div class="flex gap-2 justify-center mt-5">
+          <router-link to="/home" class="text-sm text-gray-700"
+            >网站首页
           </router-link>
-          <router-link to='/home/register' class='text-sm text-gray-700'
-          >用户注册
+          <router-link to="/home/register" class="text-sm text-gray-700"
+            >用户注册
           </router-link>
-          <router-link to='/home/register' class='text-sm text-gray-700'
-          >找回密码
+          <router-link to="/home/register" class="text-sm text-gray-700"
+            >找回密码
           </router-link>
         </div>
       </div>
-      <div class='hidden md:block'>
-        <img
-          src='@/assets/image/login.jpg'
-          class='h-80 w-full object-cover'
-        />
+      <div class="hidden md:block">
+        <img src="@/assets/image/login.jpg" class="h-80 w-full object-cover" />
       </div>
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import v from '@/plugins/validate'
 import wwInput from '@/components/form/wwInput.vue'
@@ -98,7 +95,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .login {
   @apply bg-slate-300 h-screen flex justify-center items-start md:items-center p-5;
 }

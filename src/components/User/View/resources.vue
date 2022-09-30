@@ -1,10 +1,8 @@
 <template>
-  <div>
-    已购资源
-  </div>
+  <div>已购资源</div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -16,6 +14,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
-
-</style>
+<style scoped lang="less"></style>

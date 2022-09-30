@@ -1,9 +1,9 @@
 <template>
   <div>
     <ul>
-      <template v-for='myRoute in options'>
-        <li class='demo' id='tree'>
-          <router-link :to='"/"+myRoute'>
+      <template v-for="myRoute in options">
+        <li class="demo" id="tree">
+          <router-link :to="'/' + myRoute">
             <span>{{ data[myRoute] }}</span>
           </router-link>
         </li>
@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -36,7 +36,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .demo {
   span {
     display: inline-block;

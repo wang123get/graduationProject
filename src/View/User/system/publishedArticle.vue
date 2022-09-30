@@ -1,26 +1,24 @@
 <template>
-  <div class='publishedArticle'>
-    <div class='header'>
+  <div class="publishedArticle">
+    <div class="header">
       <my-black-header />
     </div>
-    <div class='editor border shadow-sm rounded-md'>
-      <div class='title'>
-        <h2 class='text-base border-b px-5 py-5 text-gray-800'>发表文章</h2>
+    <div class="editor border shadow-sm rounded-md">
+      <div class="title">
+        <h2 class="text-base border-b px-5 py-5 text-gray-800">发表文章</h2>
       </div>
-      <div class='titleInput'>
-        <ww-input class='myInput' placeholder='请输入文章标题' />
+      <div class="titleInput">
+        <ww-input class="myInput" placeholder="请输入文章标题" />
       </div>
-      <editor v-model='data' height='600px' class='myEditor' />
-      <div class='buttonBox'>
-        <el-button type='success' class='button'>
-          发表
-        </el-button>
+      <editor v-model="data" height="600px" class="myEditor" />
+      <div class="buttonBox">
+        <el-button type="success" class="button"> 发表 </el-button>
       </div>
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import Editor from '@/components/markDown/editor.vue'
 import MyBlackHeader from '@/components/Header/myBlackHeader.vue'
@@ -38,9 +36,8 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .publishedArticle {
-
   .buttonBox {
     text-align: right;
     .button {

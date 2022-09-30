@@ -1,19 +1,24 @@
 <template>
-  <div class='basicInformation'>
+  <div class="basicInformation">
     <div>
-      <ul id='userInfo'>
-        <li style='margin:0 3px; border-right: 1px solid #e4e7ed' @click='clickA("info")'><a id='info'>基本信息</a></li>
-        <li @click='clickA("avatar")'><a id='avatar'>修改头像</a></li>
+      <ul id="userInfo">
+        <li
+          style="margin: 0 3px; border-right: 1px solid #e4e7ed"
+          @click="clickA('info')"
+        >
+          <a id="info">基本信息</a>
+        </li>
+        <li @click="clickA('avatar')"><a id="avatar">修改头像</a></li>
       </ul>
     </div>
-    <div class='showContent'>
-      <basic-user-info v-if='temp === "info"' />
-      <change-avatar v-if='temp === "avatar"' />
+    <div class="showContent">
+      <basic-user-info v-if="temp === 'info'" />
+      <change-avatar v-if="temp === 'avatar'" />
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import BasicUserInfo from '@/components/User/View/cpns/basicUserInfo.vue'
 import ChangeAvatar from '@/components/User/View/cpns/changeAvatar.vue'
@@ -22,7 +27,6 @@ export default defineComponent({
   name: 'basicInformation',
   components: { ChangeAvatar, BasicUserInfo },
   setup() {
-
     onMounted(() => {
       clickA('info')
     })
@@ -47,7 +51,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 ul {
   width: 172px;
   height: 44px;
@@ -77,11 +81,9 @@ ul {
   }
 }
 
-
 .showContent {
   background-color: white;
   width: 100%;
   border: 1px solid #e4e7ed;
-
 }
 </style>

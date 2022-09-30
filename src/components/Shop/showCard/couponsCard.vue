@@ -1,42 +1,45 @@
 <template>
-  <div class='couponsCard'>
+  <div class="couponsCard">
     <ul>
-      <template v-for='content in shopList'>
+      <template v-for="content in shopList">
         <li>
-          <div class='Box'>
-            <div class='image'>
-              <img :src='content.pict_url' />
+          <div class="Box">
+            <div class="image">
+              <img :src="content.pict_url" />
             </div>
-            <div class='recommend-item-title'>
-              <a :href='content.coupon_click_url' target='_blank'>{{ content.title }}</a>
+            <div class="recommend-item-title">
+              <a :href="content.coupon_click_url" target="_blank">{{
+                content.title
+              }}</a>
             </div>
-            <div class='recommend-item-info'>
+            <div class="recommend-item-info">
               <a
-                :href='content.coupon_click_url'
-                target='_blank'
-                class='buy-btn'
+                :href="content.coupon_click_url"
+                target="_blank"
+                class="buy-btn"
                 v-if="content.coupon_info !== ''"
-              >领券购买</a
+                >领券购买</a
               >
-              <span class='recommend-prise' v-if="content.coupon_info === ''"
-              >晚了，无优惠卷</span
+              <span class="recommend-prise" v-if="content.coupon_info === ''"
+                >晚了，无优惠卷</span
               >
-              <span class='recommend-prise' v-if="content.coupon_info !== ''"
-              >原价：{{ content.zk_final_price }}</span
+              <span class="recommend-prise" v-if="content.coupon_info !== ''"
+                >原价：{{ content.zk_final_price }}</span
               >
             </div>
-            <span class='recommend-coupon-info' v-if="content.coupon_info !== ''">{{
-                content.coupon_info
-              }}</span>
+            <span
+              class="recommend-coupon-info"
+              v-if="content.coupon_info !== ''"
+              >{{ content.coupon_info }}</span
+            >
           </div>
-
         </li>
       </template>
     </ul>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -51,7 +54,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .couponsCard {
   ul {
     li {

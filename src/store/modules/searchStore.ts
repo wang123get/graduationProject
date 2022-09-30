@@ -48,7 +48,7 @@ const searchModule: Module<any, any> = {
       }
     },
     async getGoodsByKeyword({ commit, state }, value: searchType) {
-      if (value.keyword === undefined || value.keyword === null){
+      if (value.keyword === undefined || value.keyword === null) {
         return
       }
       const goodsList = await shopApi.getSearchKey(value.page, value.keyword)

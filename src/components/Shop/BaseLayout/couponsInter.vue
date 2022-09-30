@@ -1,33 +1,33 @@
 <template>
-  <div class='Box'>
-    <div class='listBox'>
-      <div class='content-title-style'>
+  <div class="Box">
+    <div class="listBox">
+      <div class="content-title-style">
         <span
-        ><template v-for='text in route.params.id.length - 1'>
-            {{ route.params.id[text - 1] }}<em class='emStyle'>/</em>
+          ><template v-for="text in route.params.id.length - 1">
+            {{ route.params.id[text - 1] }}<em class="emStyle">/</em>
           </template>
           <span>{{ route.params.id[route.params.id.length - 1] }}</span>
         </span>
       </div>
-      <div class='content-list'>
+      <div class="content-list">
         <coupons-card
-          :shopList='showContentData'
+          :shopList="showContentData"
           v-if="loadState.loadState === 'ok'"
         />
       </div>
       <div>
         <img
-          src='src/assets/image/loading.gif'
+          src="src/assets/image/loading.gif"
           v-if="loadState.loadState === 'loading'"
-          class='loading'
+          class="loading"
         />
       </div>
     </div>
-    <div style='clear: both'></div>
+    <div style="clear: both"></div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { computed, defineComponent, onMounted, watch } from 'vue'
 import CouponsCard from '@/components/Shop/showCard/couponsCard.vue'
 import { useRoute } from 'vue-router'
@@ -45,10 +45,9 @@ export default defineComponent({
     const getCouponData = (url: string) => {
       store.dispatch('Coupons/getRecommendContentByID', {
         //@ts-ignore
-        id: recommendID[url],
+        id: recommendID[url]
       })
     }
-
 
     watch(
       () => route.params.id,
@@ -69,7 +68,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .Box {
   .listBox {
     background-color: white;

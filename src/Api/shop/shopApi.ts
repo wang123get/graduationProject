@@ -120,7 +120,8 @@ class shopApi {
       params: {
         page: page,
         keyword: keyword
-      }, interceptors: {
+      },
+      interceptors: {
         requestInterceptor: (config) => {
           store.dispatch('Search/changeLoadStateActions', 'loading')
           store.dispatch('Search/clearGoodsList')

@@ -1,13 +1,13 @@
 <template>
-  <div class='searchView'>
-    <search-card :good-list='goodsList' v-if='loadState === "ok"' />
-    <div class='loading'>
-      <img src='src/assets/image/loading.gif' v-if="loadState === 'loading'">
+  <div class="searchView">
+    <search-card :good-list="goodsList" v-if="loadState === 'ok'" />
+    <div class="loading">
+      <img src="src/assets/image/loading.gif" v-if="loadState === 'loading'" />
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { useStore } from '@/store'
 import { defineComponent, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -34,7 +34,6 @@ export default defineComponent({
       }
     )
 
-
     const goodsList = computed(() => store.getters['Search/getGoodsList'])
     const loadState = computed(() => store.getters['Search/getLoadState'])
     return { route, goodsList, loadState }
@@ -42,7 +41,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .searchView {
   width: 1140px;
   margin: 20px auto;
@@ -52,5 +51,4 @@ export default defineComponent({
     margin: 0 auto;
   }
 }
-
 </style>

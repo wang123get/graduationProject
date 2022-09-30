@@ -1,35 +1,35 @@
 <template>
-  <div class='myHeader'>
-    <span class='blogFont'>休闲客栈-卷场</span>
-    <div class='bigBox'>
-      <div class='searchFont'>
+  <div class="myHeader">
+    <span class="blogFont">休闲客栈-卷场</span>
+    <div class="bigBox">
+      <div class="searchFont">
         <ul>
           <li>
-            <router-link to='/discovery'>发现</router-link>
+            <router-link to="/discovery">发现</router-link>
           </li>
           <li>
-            <router-link to='/coupons'>卷场</router-link>
+            <router-link to="/coupons">卷场</router-link>
           </li>
           <li>
-            <router-link to='/specials'>特惠</router-link>
+            <router-link to="/specials">特惠</router-link>
           </li>
         </ul>
       </div>
-      <div class='search'>
-        <input placeholder='搜索' v-model='myInput' />
+      <div class="search">
+        <input placeholder="搜索" v-model="myInput" />
         <img
-          style='cursor: pointer'
-          src='~@/assets/image/red_search.png'
-          width='20'
-          class='myImg'
-          @click='searchBtn(myInput)'
+          style="cursor: pointer"
+          src="~@/assets/image/red_search.png"
+          width="20"
+          class="myImg"
+          @click="searchBtn(myInput)"
         />
       </div>
     </div>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -51,7 +51,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .router-link-active {
   color: red !important;
 }
@@ -70,7 +70,6 @@ export default defineComponent({
     margin-left: 60px;
     float: left;
   }
-
 
   .bigBox {
     width: 1300px;
@@ -150,8 +149,6 @@ export default defineComponent({
       top: -25px;
     }
   }
-
-
 }
 
 .search {

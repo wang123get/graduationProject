@@ -14,6 +14,6 @@ export interface queryPreferentialType {
 }
 
 export interface searchType {
-  page: number,
-  keyword: string,
+  page: number
+  keyword: string
 }

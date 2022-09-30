@@ -1,9 +1,8 @@
 <template>
   <div>
-    <show-home/>
+    <show-home />
   </div>
-  <div class='showContent'>
-  </div>
+  <div class="showContent"></div>
 </template>
 
 <script>
@@ -20,5 +19,4 @@ export default defineComponent({
 .showContent {
   height: 1200px;
 }
-
 </style>

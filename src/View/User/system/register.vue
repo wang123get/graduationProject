@@ -1,86 +1,86 @@
 <template>
-  <div class='login'>
-    <div class='box'>
-      <div class='hidden md:block'>
+  <div class="login">
+    <div class="box">
+      <div class="hidden md:block">
         <img
-          src='@/assets/image/register.jpg'
-          class='h-80 w-full object-cover'
+          src="@/assets/image/register.jpg"
+          class="h-80 w-full object-cover"
         />
       </div>
-      <div class='p-6'>
-        <h2 class='text-center text-gray-700 text-lg'>用户注册</h2>
-        <form @submit='userRegister'>
-          <div class='mt-3'>
+      <div class="p-6">
+        <h2 class="text-center text-gray-700 text-lg">用户注册</h2>
+        <form @submit="userRegister">
+          <div class="mt-3">
             <el-tooltip
-              class='box-item'
+              class="box-item"
               :effect="errors.username ? 'dark' : 'light'"
-              trigger='hover'
-              :content='errors.username ? errors.username : welcomeTextFerch()'
-              placement='right-start'
+              trigger="hover"
+              :content="errors.username ? errors.username : welcomeTextFerch()"
+              placement="right-start"
             >
               <ww-input
-                type='text'
-                placeholder='请输入昵称'
-                v-model='usernameValue'
+                type="text"
+                placeholder="请输入昵称"
+                v-model="usernameValue"
               />
             </el-tooltip>
             <el-tooltip
-              class='box-item'
+              class="box-item"
               :effect="errors.account ? 'dark' : 'light'"
-              trigger='hover'
-              :content='errors.account ? errors.account : welcomeTextFerch()'
-              placement='right-start'
+              trigger="hover"
+              :content="errors.account ? errors.account : welcomeTextFerch()"
+              placement="right-start"
             >
               <ww-input
-                type='text'
-                placeholder='请输入邮箱或账号'
-                class='mt-3'
-                v-model='accountValue'
+                type="text"
+                placeholder="请输入邮箱或账号"
+                class="mt-3"
+                v-model="accountValue"
               />
             </el-tooltip>
             <el-tooltip
-              class='box-item'
+              class="box-item"
               :effect="errors.password ? 'dark' : 'light'"
-              trigger='hover'
-              :content='errors.password ? errors.password : welcomeTextFerch()'
-              placement='right-start'
+              trigger="hover"
+              :content="errors.password ? errors.password : welcomeTextFerch()"
+              placement="right-start"
             >
               <ww-input
-                type='password'
-                placeholder='请输入密码'
-                class='mt-3'
-                v-model='passwordValue'
+                type="password"
+                placeholder="请输入密码"
+                class="mt-3"
+                v-model="passwordValue"
               />
             </el-tooltip>
             <el-tooltip
-              class='box-item'
+              class="box-item"
               :effect="errors.password_confirmation ? 'dark' : 'light'"
-              trigger='hover'
-              :content='
+              trigger="hover"
+              :content="
                 errors.password_confirmation
                   ? errors.password_confirmation
                   : welcomeTextFerch()
-              '
-              placement='right-start'
+              "
+              placement="right-start"
             >
               <ww-input
-                type='password'
-                placeholder='请再次确认密码'
-                class='mt-3'
-                v-model='password_confirmationValue'
+                type="password"
+                placeholder="请再次确认密码"
+                class="mt-3"
+                v-model="password_confirmationValue"
               />
             </el-tooltip>
           </div>
           <el-popover
-            ref='popover'
-            placement='right'
+            ref="popover"
+            placement="right"
             :title="errorText() ? '提示' : '祝您'"
-            :width='200'
-            trigger='focus'
-            :content='errorText() ? errorText() : welcomeTextFerch()'
+            :width="200"
+            trigger="focus"
+            :content="errorText() ? errorText() : welcomeTextFerch()"
           >
             <template #reference>
-              <ww-button class='mt-5'>立即注册</ww-button>
+              <ww-button class="mt-5">立即注册</ww-button>
             </template>
           </el-popover>
         </form>
@@ -89,7 +89,7 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import v from '@/Main/plugins/validate'
 import yup from '@/Main/plugins/validate/yup'
