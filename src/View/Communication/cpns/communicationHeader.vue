@@ -1,30 +1,24 @@
 <template>
-  <div class="myHeader">
-    <div class="title">
-      <span class="titileName">休闲客栈</span>
+  <div class='myHeader'>
+    <div class='title'>
+      <span class='titileName'>休闲客栈</span>
     </div>
-    <div class="pageList">
+    <div class='pageList'>
       <ul>
         <li>
-          <a @click="chickRouterM()">首页</a>
+          <a @click='chickRouterM()'>首页</a>
         </li>
         <li>
-          <a @click="chickRouterC()">摸鱼</a>
+          <a @click='chickRouterC()'>摸鱼</a>
         </li>
         <li>
-          <el-dropdown style="margin-top: 3px" @command="handleCooand">
-            <span style="font-size: 18px">
+          <el-dropdown style='margin-top: 4px' @command='handleCooand'>
+            <span>
               <a>分类</a>
-              <el-icon
-                class="el-icon--right"
-                style="color: #656c76; margin-bottom: 5px"
-              >
-                <arrow-down />
-              </el-icon>
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="/mall">商城</el-dropdown-item>
+                <el-dropdown-item command='/mall'>商城</el-dropdown-item>
                 <el-dropdown-item>项目</el-dropdown-item>
                 <el-dropdown-item>学习资料</el-dropdown-item>
               </el-dropdown-menu>
@@ -32,37 +26,37 @@
           </el-dropdown>
         </li>
         <li>
-          <a @click="chickRouterT()">时间轴</a>
+          <a @click='chickRouterT()'>时间轴</a>
         </li>
         <li>
-          <a @click="chickRouterP()">标签</a>
+          <a @click='chickRouterP()'>标签</a>
         </li>
       </ul>
     </div>
-    <div class="UserInfo">
-      <el-dropdown @command="handleCooand">
+    <div class='UserInfo'>
+      <el-dropdown @command='handleCooand'>
         <span>
           <el-avatar
-            src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg"
+            src='https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/2634/avatar.jpg'
           />
-          <span class="userName"
-            >awddawsdwad
-            <el-icon class="el-icon--right" style="color: #656c76">
+          <span class='userName'
+          >awddawsdwad
+            <el-icon class='el-icon--right' style='color: #656c76'>
               <arrow-down />
             </el-icon>
           </span>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item command="/User/info">个人信息</el-dropdown-item>
-            <el-dropdown-item command="/User/publishedArticle"
-              >发表文章
+            <el-dropdown-item command='/User/info'>个人信息</el-dropdown-item>
+            <el-dropdown-item command='/User/publishedArticle'
+            >发表文章
             </el-dropdown-item>
-            <el-dropdown-item divided command="User/changePassword"
-              >修改密码
+            <el-dropdown-item divided command='User/changePassword'
+            >修改密码
             </el-dropdown-item>
-            <el-dropdown-item command="User/outLogin"
-              >退出登录
+            <el-dropdown-item command='User/outLogin'
+            >退出登录
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -71,7 +65,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -95,7 +89,8 @@ export default defineComponent({
       router.push('/communication')
     }
 
-    const chickRouterP = () => {}
+    const chickRouterP = () => {
+    }
 
     const chickRouterT = () => {
       router.push({
@@ -113,7 +108,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="less">
+<style scoped lang='less'>
 .myHeader {
   width: 100%;
   height: 60px;
@@ -121,6 +116,7 @@ export default defineComponent({
   display: flex;
   background-color: white;
   box-shadow: 0 5px 6px -5px rgba(133, 133, 133, 0.6);
+  font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial !important;
 
   .title {
     width: 124px;
@@ -156,8 +152,8 @@ export default defineComponent({
 
         a {
           text-decoration: none;
-          font-weight: 550;
-          font-size: 18px;
+          font-weight: 600;
+          font-size: 16px;
           color: #656c76;
         }
       }

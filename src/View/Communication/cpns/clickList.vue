@@ -2,19 +2,23 @@
   <div class='clickList'>
     <div class='clickLess'>
       <router-link to='/communication/推荐'>
-        <li><span style='font-size: 15px'>推 荐</span></li>
+        <li><img src='~@/assets/image/TuiJ.png'><span style='font-size: 15px'>
+          推 荐</span></li>
       </router-link>
     </div>
     <div class='clickLess'>
       <router-link to='/communication/关注'>
-        <li><span style='font-size: 15px'>关 注</span></li>
+        <li><img src='~@/assets/image/GuanZ.png'><span style='font-size: 15px'>
+          关 注</span></li>
       </router-link>
     </div>
     <div
       style='width: 80px; margin: 0 auto; border-bottom: #dcdcdc 1px solid'
     ></div>
     <div class='clickLess'>
-      <router-link to='/communication/管理话题'><li><span style='font-size: 15px'># 管理话题</span></li></router-link>
+      <router-link to='/communication/管理话题'>
+        <li><span style='font-size: 15px'># 管理话题</span></li>
+      </router-link>
     </div>
     <div class='userLike'>
       <ul>
@@ -48,8 +52,10 @@ export default defineComponent({
   li {
     background-color: #e5f2ff;
     border-radius: 4px;
+
     span {
       color: #0084ff;
+      font-weight: 580;
     }
   }
 }
@@ -64,6 +70,12 @@ export default defineComponent({
       height: 34px;
       margin: 2px auto;
       line-height: 34px;
+
+      img {
+        width: 20px;
+        display: inline-block;
+        margin-top: -3px;
+      }
     }
 
     li:hover {
